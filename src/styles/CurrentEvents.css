@@ -1,0 +1,76 @@
+.CurrentEvents {
+  border-right: 1px solid gray;
+  padding: 0 20px;
+  display: block;
+  width: 190px;
+}
+
+.CurrentEvents > div {
+  margin-bottom: 25px;
+}
+
+.CurrentEvents div h3 {
+  text-decoration: underline;
+  font-weight: lighter;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.CurrentEvents div span {
+  /* Time/Date Labels */
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.CurrentEvents div time {
+  font-size: 14px;
+  text-transform: uppercase;
+  float: right;
+}
+
+.CurrentEvents div hr {
+  clear: both;
+  margin-bottom: 0;
+}
+
+.CurrentEvents div div button {
+  background: none;
+  border: none;
+  border-right: 1px solid black;
+  padding: 0;
+  padding-right: 5px;
+  margin: 0;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: red;
+  float: left;
+}
+
+.CurrentEvents div div button:last-child {
+  padding-left: 5px;
+  border: none;
+}
+.CurrentEvents div div button:hover {
+  text-decoration: underline;
+}
+
+.CurrentEvents div div span {
+  margin: 0 5px;
+  font-size: 10px;
+}
+
+.CurrentEvents .hide {
+  display: none;
+}
+
+.CurrentEvents .show {
+  float: left;
+}
+
+.CurrentEvents div span:last-child {
+  font-size: 10px;
+  float: right;
+}

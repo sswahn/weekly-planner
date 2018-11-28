@@ -1,0 +1,33 @@
+.CreateEvent {
+  width: 400px;
+  border-right: 1px solid gray;
+  padding-right: 10px;
+  float: left;
+}
+
+.CreateEvent h1 {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-right: 45px;
+  float: right;
+}
+
+.CreateEvent form {
+  overflow: hidden;
+  clear: both;
+}
+
+.CreateEvent form div {
+  margin-bottom: 20px;
+  float: right;
+}
+
+.CreateEvent form div label {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.CreateEvent form div input {
+  width: 200px;
+  margin-left: 5px;
+}
