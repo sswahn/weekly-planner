@@ -41,7 +41,8 @@ class CurrentEvents extends Component {
       <div className="CurrentEvents">
         {events.length === 0 ? <div></div> :
           events.map((data, index) =>
-            <div key={index} onMouseEnter={this.showModifiers} onMouseLeave={this.hideModifiers}> 
+            <div key={index} className={data.event_type} 
+              onMouseEnter={this.showModifiers} onMouseLeave={this.hideModifiers}> 
               <h3>{data.event_name}</h3>
               <span>Date: </span>
               <time dateTime={data.event_date}>{data.event_date}</time>

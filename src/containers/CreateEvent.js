@@ -24,7 +24,8 @@ class CreateEvent extends Component {
       event_name: event.target[0].value,
       event_date: event.target[1].value,
       event_begin: event.target[2].value,
-      event_end: event.target[3].value
+      event_end: event.target[3].value,
+      event_type: event.target[4].value
     }
     if (!this.isTimeSlotAvailable(data)) {
       return alert('Sorry, selected time slot is unavailable')
@@ -47,14 +48,23 @@ class CreateEvent extends Component {
           <div>
             <label htmlFor="event-begin">Event begin (AM/PM):</label>
             <input id="event-begin" type="time" name="event_begin" required defaultValue={
-              this.props.defaultBeginTime
+              (new Date()).toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'})
             } />
           </div>
           <div>
             <label htmlFor="event-end">Event end (AM/PM):</label>
             <input id="event-end" type="time" name="event_end" required defaultValue={
-              this.props.defaultEndTime
+              ((new Date()).getHours() + 1) + ':' + (new Date()).getMinutes()
             } />
+          </div>
+          <div>
+            <label htmlFor="event-type">Event type:</label>
+            <select id="event-type" defaultValue="default">
+              <option value="default"> -- Select an option -- </option>
+              <option value="work">Work related</option>
+              <option value="party">Party related</option>
+              <option value="hospital">Meds related</option>
+            </select> 
           </div>
           <div>
             <button type="submit">Create</button>
@@ -65,13 +75,8 @@ class CreateEvent extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  const date = new Date()
-  return {
-    events: state.events,
-    defaultBeginTime: date.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}),
-    defaultEndTime: (date.getHours() + 1) + ':' + date.getMinutes()
-  }
-}
+const mapStateToProps = state => ({
+    events: state.events
+})
 
 export default connect(mapStateToProps)(CreateEvent)

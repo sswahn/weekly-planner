@@ -1,19 +1,38 @@
 .CurrentEvents {
-  border-right: 1px solid gray;
   padding: 0 20px;
   display: block;
-  width: 190px;
+  max-width: 210px;
+  box-sizing: border-box;
 }
 
 .CurrentEvents > div {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.CurrentEvents .default {
+  background-color: white;
+
+}
+
+.CurrentEvents .work {
+  background-color: #ffc107;
+}
+
+.CurrentEvents .party {
+  background-color: #5cb85c;
+}
+
+.CurrentEvents .hospital {
+  background-color: #5bc0de;
 }
 
 .CurrentEvents div h3 {
   text-decoration: underline;
   font-weight: lighter;
   font-size: 16px;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 .CurrentEvents div span {
@@ -37,7 +56,7 @@
 .CurrentEvents div div button {
   background: none;
   border: none;
-  border-right: 1px solid black;
+  border-right: 1px solid gray;
   padding: 0;
   padding-right: 5px;
   margin: 0;
