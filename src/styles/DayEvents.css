@@ -1,0 +1,27 @@
+.DayEvents {
+  border-left: 1px solid gray;
+  padding-left: 20px;
+  height:100vh;
+}
+
+.DayEvents div {
+  margin-bottom: 20px;
+}
+
+.DayEvents h2 {
+  font-size: 15px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-decoration: underline;
+  padding: 35px 0 20px;
+}
+
+.DayEvents h3 {
+  margin-bottom: 5px;
+  font-weight: lighter;
+  text-decoration: underline;
+}
+
+.DayEvents time {
+  margin-right: 15px;
+}

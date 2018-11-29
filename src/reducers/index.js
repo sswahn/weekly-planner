@@ -2,18 +2,23 @@ import {
   CREATE_EVENT, 
   UPDATE_EVENT, 
   DELETE_EVENT, 
-  TOGGLE_VIEW
+  SHOW_DAY_EVENTS,
+  SHOW_UPDATE_FORM
 } from '../actions'
 
 const initialState = {
   events: [],
-  view: ''// set default view
+  showUpdateForm: false,
+  updateId: undefined,
+  showDayEvents: false,
+  dayDate: undefined
 }
 
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_EVENT:
       return {
+        ...state,
         events: [
           ...state.events,
           action.event
@@ -27,14 +32,25 @@ const eventReducer = (state = initialState, action) => {
       }
     case DELETE_EVENT:
       return {
+        ...state,
         events: state.events.filter((event, index) =>
           index !== Number(action.id)
-        )
+        ),
+        showUpdateForm: false
       }
-    case TOGGLE_VIEW:
+    case SHOW_DAY_EVENTS:
       return {
         ...state,
-        view: action.view
+        showUpdateForm: false,
+        showDayEvents: true,
+        dayDate: action.date
+      }
+    case SHOW_UPDATE_FORM:
+      return {
+        ...state,
+        showDayEvents: false,
+        showUpdateForm: true,
+        updateId: action.id
       }
     default:
       return state

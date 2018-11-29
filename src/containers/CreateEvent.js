@@ -38,7 +38,7 @@ class CreateEvent extends Component {
         <h1>Create Event</h1>
         <form onSubmit={this.handleCreateEvent}>
           <div>
-            <label htmlFor="event-name">Event:</label>
+            <label htmlFor="event-name">Name:</label>
             <input id="event-name" type="text" name="event_name" required />
           </div>
           <div>
@@ -46,15 +46,15 @@ class CreateEvent extends Component {
             <input id="event-date" type="date" name="event_date" required />
           </div>
           <div>
-            <label htmlFor="event-begin">Event begin (AM/PM):</label>
+            <label htmlFor="event-begin">Begin (AM/PM):</label>
             <input id="event-begin" type="time" name="event_begin" required defaultValue={
               (new Date()).toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'})
             } />
           </div>
           <div>
-            <label htmlFor="event-end">Event end (AM/PM):</label>
+            <label htmlFor="event-end">End (AM/PM):</label>
             <input id="event-end" type="time" name="event_end" required defaultValue={
-              ((new Date()).getHours() + 1) + ':' + (new Date()).getMinutes()
+              (new Date()).toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit', timeZone: 'UTC'})
             } />
           </div>
           <div>
@@ -63,7 +63,7 @@ class CreateEvent extends Component {
               <option value="default"> -- Select an option -- </option>
               <option value="work">Work related</option>
               <option value="party">Party related</option>
-              <option value="hospital">Meds related</option>
+              <option value="hospital">Doctor related</option>
             </select> 
           </div>
           <div>

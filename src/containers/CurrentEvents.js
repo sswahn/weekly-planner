@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateEvent, deleteEvent } from '../actions'
+import { showUpdateForm, deleteEvent, showDayEvents } from '../actions'
 import '../styles/CurrentEvents.css'
 
 class CurrentEvents extends Component {
   constructor(props) {
     super(props)
-    this.handleDeleteEvent = this.handleDeleteEvent.bind(this)
     this.showModifiers = this.showModifiers.bind(this)
     this.hideModifiers = this.hideModifiers.bind(this)
     this.determineDay = this.determineDay.bind(this)
+    this.handleDeleteEvent = this.handleDeleteEvent.bind(this)
+    this.handleShowDayEvents = this.handleShowDayEvents.bind(this)
+    this.handleShowUpdateForm = this.handleShowUpdateForm.bind(this)
   }
   showModifiers(event) {
     event.currentTarget.children[8].className = 'show'
@@ -23,10 +25,14 @@ class CurrentEvents extends Component {
       ? 'Weekend' 
       : 'Weekday'
   }
-  handleUpdateEvent(event) {
-    event.preventDefault()
-    //event.target.parentNode.id
-    //this.props.dispatch(updateEvent(id))
+  handleShowDayEvents(event) {
+    const date = event.currentTarget
+      .parentNode.children[2].textContent
+    this.props.dispatch(showDayEvents(date))
+  }
+  handleShowUpdateForm(event) {
+    const id = event.target.parentNode.id
+    this.props.dispatch(showUpdateForm(id))
   }
   handleDeleteEvent(event) {
     event.preventDefault()
@@ -41,9 +47,10 @@ class CurrentEvents extends Component {
       <div className="CurrentEvents">
         {events.length === 0 ? <div></div> :
           events.map((data, index) =>
-            <div key={index} className={data.event_type} 
-              onMouseEnter={this.showModifiers} onMouseLeave={this.hideModifiers}> 
-              <h3>{data.event_name}</h3>
+            <div key={index} id={index} className={data.event_type} 
+              onMouseEnter={this.showModifiers} 
+              onMouseLeave={this.hideModifiers}> 
+              <h3 onClick={this.handleShowDayEvents}>{data.event_name}</h3>
               <span>Date: </span>
               <time dateTime={data.event_date}>{data.event_date}</time>
               <span>Start time: </span>
@@ -52,7 +59,7 @@ class CurrentEvents extends Component {
               <time dateTime={data.event_end}>{data.event_end}</time>
               <hr />
               <div className="hide" id={index}>
-                <button>Update</button>
+                <button onClick={this.handleShowUpdateForm}>Update</button>
                 <button onClick={this.handleDeleteEvent}>Delete</button>
               </div>
               <span>{this.determineDay(data.event_date)}</span>

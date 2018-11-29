@@ -1,0 +1,23 @@
+.UpdateEvent {
+  height:100vh;
+  padding-left: 20px;
+  border-left: 1px solid gray;
+}
+
+.UpdateEvent h2 {
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 20px 0;
+  margin-top: 0;
+  margin-left: 35px;
+}
+
+.UpdateEvent form div {
+  margin-bottom: 20px;
+}
+
+.UpdateEvent form div input,
+.UpdateEvent form div select {
+  box-sizing: border-box;
+  width: 200px;
+}

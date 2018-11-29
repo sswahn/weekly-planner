@@ -18,8 +18,14 @@ export const deleteEvent = id => ({
   id
 })
 
-export const TOGGLE_VIEW = 'TOGGLE_VIEW'
-export const toggleView = view => ({
-  type: TOGGLE_VIEW,
-  view
+export const SHOW_DAY_EVENTS = 'SHOW_DAY_EVENTS'
+export const showDayEvents = date => ({
+  type: SHOW_DAY_EVENTS,
+  date
+})
+
+export const SHOW_UPDATE_FORM = 'SHOW_UPDATE_FORM'
+export const showUpdateForm = id => ({
+  type: SHOW_UPDATE_FORM,
+  id
 })
