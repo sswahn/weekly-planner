@@ -35,7 +35,6 @@ class CurrentEvents extends Component {
     this.props.dispatch(showUpdateForm(id))
   }
   handleDeleteEvent(event) {
-    event.preventDefault()
     if (window.confirm('Delete this event?')) {
       const id = event.target.parentNode.id
       this.props.dispatch(deleteEvent(id))

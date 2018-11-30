@@ -33,7 +33,7 @@ class UpdateEvent extends Component {
       event_type: event.target[4].value
     }
     if (!this.isTimeSlotAvailable(data)) {
-      return alert('Sorry, selected time slot is unavailable')
+      return alert('Sorry, selected time slot is unavailable.')
     }
     dispatch(updateEvent(data, updateId))
   }

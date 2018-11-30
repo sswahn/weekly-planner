@@ -12,7 +12,6 @@ class DisplayPanel extends Component {
           <div>
             {showDayEvents ? <DayEvents /> : <div></div>}
             {showUpdateForm === true ? <UpdateEvent /> : <div></div>}
-            
           </div>
         }
       </div>
